@@ -1,0 +1,26 @@
+2025-02-03 02:27:59,872 - [INFO] Model e�itme s�reci ba�lat�ld�.
+2025-02-03 02:27:59,876 - [INFO] Veri ba�ar�yla y�klendi.
+2025-02-03 02:27:59,878 - [INFO] Veri ba�ar�yla �n i�lendi.
+2025-02-03 02:27:59,927 - [INFO] Model ba�ar�yla e�itildi.
+2025-02-03 02:27:59,928 - [TIMER] train_model s�resi: 0.0510 saniye
+2025-02-03 02:27:59,932 - [INFO] Model ba�ar�yla de�erlendirildi. Do�ruluk: 1.0000
+2025-02-03 02:28:35,815 - [INFO] Model eğitme süreci başlatıldı.
+2025-02-03 02:28:35,821 - [INFO] Veri başarıyla yüklendi.
+2025-02-03 02:28:35,822 - [INFO] Veri başarıyla ön işlendi.
+2025-02-03 02:28:35,871 - [INFO] Model başarıyla eğitildi.
+2025-02-03 02:28:35,871 - [TIMER] train_model süresi: 0.0491 saniye
+2025-02-03 02:28:35,879 - [INFO] Model başarıyla değerlendirildi. Doğruluk: 1.0000
+2025-02-03 02:28:54,319 - [INFO] Model eğitme süreci başlatıldı.
+2025-02-03 02:28:54,322 - [INFO] Veri başarıyla yüklendi.
+2025-02-03 02:28:54,324 - [INFO] Veri başarıyla ön işlendi.
+2025-02-03 02:28:54,373 - [INFO] Model başarıyla eğitildi.
+2025-02-03 02:28:54,373 - [TIMER] train_model süresi: 0.0492 saniye
+2025-02-03 02:28:54,378 - [INFO] Model başarıyla değerlendirildi. Doğruluk: 1.0000
+2025-02-03 02:29:34,688 - [INFO] Model eğitme süreci başlatıldı.
+2025-02-03 02:29:34,692 - [INFO] Veri başarıyla yüklendi.
+2025-02-03 02:29:34,694 - [INFO] Veri başarıyla ön işlendi.
+2025-02-03 02:29:34,744 - [INFO] Model başarıyla eğitildi.
+2025-02-03 02:29:34,744 - [TIMER] train_model süresi: 0.0507 saniye
+2025-02-03 02:29:34,747 - [INFO] Model başarıyla değerlendirildi. Doğruluk: 1.0000
+2025-02-03 02:29:34,759 - [INFO] Model başarıyla kaydedildi: C:\Users\emreq\Desktop\MLOPS - ML\deepseek-mlops\deepseek_mlops\../models/trained_model.pkl
+2025-02-03 02:29:34,760 - [INFO] Model eğitme süreci tamamlandı.
