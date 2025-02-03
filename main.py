@@ -1,33 +1,45 @@
-from deepseek_mlops import load_data, preprocess, train_model, evaluate_model, save_trained_model
-from deepseek_mlops.utils import log
-from deepseek_mlops.mlflow_tracking import start_run, end_run, log_metrics, log_model
-from sklearn.metrics import accuracy_score
+import mlflow
+import logging  # Add logging import
+from deepseek_mlops.data_loader import load_data
+from deepseek_mlops.preprocessing import preprocess  # Added import for preprocessing
+from deepseek_mlops.train import train_model
+from deepseek_mlops.evaluate import evaluate_model
+from deepseek_mlops.save_model import save_trained_model
+from deepseek_mlops.utils import log, setup_logging
+from deepseek_mlops.config import MODEL_FILE, LOG_FILE  # Add LOG_FILE import
 
 def main():
-    log("[INFO] Model eğitme süreci başlatıldı.")
-    start_run()
+    setup_logging(LOG_FILE)  # Set up logging at the start of your application
+    log("[INFO] Model training process started.")
 
-    # 1. Veriyi yükle
-    data = load_data()
+    mlflow.set_experiment("Deepseek_MLOps_Experiment")  # Set your MLflow experiment
+    with mlflow.start_run():
+        # 1. Load Data
+        data = load_data()
+        if data is None:  # Handle data loading errors
+            log("[ERROR] Data loading failed. Exiting.", level=logging.ERROR)
+            return  # Exit the program
 
-    # 2. Ön işleme
-    X_train, X_test, y_train, y_test = preprocess(data)
+        # 2. Preprocess Data
+        X_train, X_test, y_train, y_test = preprocess(data)
+        if X_train is None:  # Handle preprocessing errors
+            log("[ERROR] Preprocessing failed. Exiting.", level=logging.ERROR)
+            return
 
-    # 3. Modeli eğit
-    model = train_model(X_train, y_train)
+        # 3. Train Model
+        model = train_model(X_train, y_train)
 
-    # 4. Modeli değerlendir
-    y_pred = model.predict(X_test)
-    accuracy = accuracy_score(y_test, y_pred)
-    evaluate_model(model, X_test, y_test)
-    log_metrics({"accuracy": accuracy})
-    log_model(model)
+        # 4. Evaluate Model
+        accuracy = evaluate_model(model, X_test, y_test)  # Get the returned accuracy
 
-    # 5. Modeli kaydet
-    save_trained_model(model)
+        # 5. Log Metrics to MLflow
+        mlflow.log_metric("accuracy", accuracy) # log the accuracy
 
-    log("[INFO] Model eğitme süreci tamamlandı.")
-    end_run()
+        # 6. Save Model (locally and to MLflow)
+        save_trained_model(model)  # Save locally
+        mlflow.sklearn.log_model(model, "model")  # Save to MLflow
+
+        log("[INFO] Model training process completed successfully.")
 
 if __name__ == "__main__":
     main()

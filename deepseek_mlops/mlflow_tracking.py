@@ -2,23 +2,21 @@ import mlflow
 import mlflow.sklearn
 
 def start_run():
-    """MLflow deneyi başlatır."""
+    """Starts an MLflow run."""
     mlflow.start_run()
 
 def end_run():
-    """MLflow deneyi sonlandırır."""
-    mlflow.end_run()
+    """Ends an MLflow run."""
+    mlflow.end_run()  # Change to mlflow.end_run()
 
 def log_params(params: dict):
-    """Parametreleri MLflow'a kaydeder."""
-    for key, value in params.items():
-        mlflow.log_param(key, value)
+    """Logs parameters to MLflow."""
+    mlflow.log_params(params)  # Log all params at once
 
 def log_metrics(metrics: dict):
-    """Metrikleri MLflow'a kaydeder."""
-    for key, value in metrics.items():
-        mlflow.log_metric(key, value)
+    """Logs metrics to MLflow."""
+    mlflow.log_metrics(metrics)  # Log all metrics at once
 
 def log_model(model, model_name="model"):
-    """Modeli MLflow'a kaydeder."""
+    """Logs a model to MLflow."""
     mlflow.sklearn.log_model(model, model_name)

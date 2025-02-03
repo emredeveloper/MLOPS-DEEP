@@ -5,12 +5,12 @@ from deepseek_mlops.mlflow_tracking import log_params
 
 @measure_time
 def train_model(X_train, y_train):
-    """Rastgele orman modeli ile eğitimi gerçekleştirir."""
+    """Trains a RandomForestClassifier model."""
     params = {"n_estimators": N_ESTIMATORS, "random_state": RANDOM_STATE}
-    log_params(params)  # Parametreleri MLflow'a kaydet
+    log_params(params)
 
     model = RandomForestClassifier(n_estimators=N_ESTIMATORS, random_state=RANDOM_STATE)
     model.fit(X_train, y_train)
 
-    log("[INFO] Model başarıyla eğitildi.")
+    log("[INFO] Model trained successfully.")
     return model

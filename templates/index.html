@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DeepSeek MLOps API</title>
+</head>
+<body>
+    <h1>Welcome to the DeepSeek MLOps API!</h1>
+
+    <form method="post" action="/predict">
+        <label for="features">Features (comma-separated):</label><br>
+        <input type="text" id="features" name="features" required><br><br>
+
+        <label for="csv_data">Upload CSV (optional):</label><br>
+        <textarea id="csv_data" name="csv_data"></textarea><br><br>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction is defined %}
+        <h2>Prediction: {{ prediction }}</h2>
+    {% endif %}
+
+    {% if error is defined %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    {% if csv_message is defined %}
+        <p>{{ csv_message }}</p>
+    {% endif %}
+
+</body>
+</html>
