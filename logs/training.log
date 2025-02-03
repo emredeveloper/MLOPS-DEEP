@@ -1,42 +1,14 @@
-2025-02-03 02:27:59,872 - [INFO] Model e�itme s�reci ba�lat�ld�.
-2025-02-03 02:27:59,876 - [INFO] Veri ba�ar�yla y�klendi.
-2025-02-03 02:27:59,878 - [INFO] Veri ba�ar�yla �n i�lendi.
-2025-02-03 02:27:59,927 - [INFO] Model ba�ar�yla e�itildi.
-2025-02-03 02:27:59,928 - [TIMER] train_model s�resi: 0.0510 saniye
-2025-02-03 02:27:59,932 - [INFO] Model ba�ar�yla de�erlendirildi. Do�ruluk: 1.0000
-2025-02-03 02:28:35,815 - [INFO] Model eğitme süreci başlatıldı.
-2025-02-03 02:28:35,821 - [INFO] Veri başarıyla yüklendi.
-2025-02-03 02:28:35,822 - [INFO] Veri başarıyla ön işlendi.
-2025-02-03 02:28:35,871 - [INFO] Model başarıyla eğitildi.
-2025-02-03 02:28:35,871 - [TIMER] train_model süresi: 0.0491 saniye
-2025-02-03 02:28:35,879 - [INFO] Model başarıyla değerlendirildi. Doğruluk: 1.0000
-2025-02-03 02:28:54,319 - [INFO] Model eğitme süreci başlatıldı.
-2025-02-03 02:28:54,322 - [INFO] Veri başarıyla yüklendi.
-2025-02-03 02:28:54,324 - [INFO] Veri başarıyla ön işlendi.
-2025-02-03 02:28:54,373 - [INFO] Model başarıyla eğitildi.
-2025-02-03 02:28:54,373 - [TIMER] train_model süresi: 0.0492 saniye
-2025-02-03 02:28:54,378 - [INFO] Model başarıyla değerlendirildi. Doğruluk: 1.0000
-2025-02-03 02:29:34,688 - [INFO] Model eğitme süreci başlatıldı.
-2025-02-03 02:29:34,692 - [INFO] Veri başarıyla yüklendi.
-2025-02-03 02:29:34,694 - [INFO] Veri başarıyla ön işlendi.
-2025-02-03 02:29:34,744 - [INFO] Model başarıyla eğitildi.
-2025-02-03 02:29:34,744 - [TIMER] train_model süresi: 0.0507 saniye
-2025-02-03 02:29:34,747 - [INFO] Model başarıyla değerlendirildi. Doğruluk: 1.0000
-2025-02-03 02:29:34,759 - [INFO] Model başarıyla kaydedildi: C:\Users\emreq\Desktop\MLOPS - ML\deepseek-mlops\deepseek_mlops\../models/trained_model.pkl
-2025-02-03 02:29:34,760 - [INFO] Model eğitme süreci tamamlandı.
-2025-02-03 02:36:36,445 - [INFO] Model eğitme süreci başlatıldı.
-2025-02-03 02:36:36,641 - [INFO] Veri başarıyla yüklendi.
-2025-02-03 02:36:36,642 - [INFO] Veri başarıyla ön işlendi.
-2025-02-03 02:36:36,705 - [INFO] Model başarıyla eğitildi.
-2025-02-03 02:36:36,705 - [TIMER] train_model süresi: 0.0606 saniye
-2025-02-03 02:36:36,709 - [INFO] Model başarıyla değerlendirildi. Doğruluk: 1.0000
-2025-02-03 02:36:40,072 - [INFO] Model başarıyla kaydedildi: C:\Users\emreq\Desktop\MLOPS - ML\deepseek-mlops\deepseek_mlops\../models/trained_model.pkl
-2025-02-03 02:36:40,072 - [INFO] Model eğitme süreci tamamlandı.
-2025-02-03 02:40:24,662 - [INFO] Model eğitme süreci başlatıldı.
-2025-02-03 02:40:24,886 - [INFO] Veri başarıyla yüklendi.
-2025-02-03 02:40:24,892 - [INFO] Veri başarıyla ön işlendi.
-2025-02-03 02:40:24,955 - [INFO] Model başarıyla eğitildi.
-2025-02-03 02:40:24,956 - [TIMER] train_model süresi: 0.0627 saniye
-2025-02-03 02:40:24,959 - [INFO] Model başarıyla değerlendirildi. Doğruluk: 1.0000
-2025-02-03 02:40:24,973 - [INFO] Model başarıyla kaydedildi: C:\Users\emreq\Desktop\MLOPS - ML\deepseek-mlops\deepseek_mlops\../models/trained_model.pkl
-2025-02-03 02:40:28,079 - [INFO] Model eğitme süreci tamamlandı.
+2025-02-03 12:46:52,067 - INFO - [INFO] Model training process started.
+2025-02-03 12:46:52,247 - INFO - [INFO] Iris dataset loaded successfully.
+2025-02-03 12:46:52,257 - INFO - [INFO] RandomForestClassifier trained successfully.
+2025-02-03 12:46:52,257 - INFO - [TIMER] train_model took 0.0079 seconds
+2025-02-03 12:46:52,258 - INFO - [INFO] Model evaluated. Accuracy: 1.0000
+2025-02-03 12:46:52,263 - INFO - [INFO] Model saved successfully to C:\Users\emreq\Desktop\MLOPS - ML\deepseek-mlops\models\trained_model.pkl
+2025-02-03 12:46:54,672 - INFO - [INFO] Model training process completed successfully.
+2025-02-03 12:52:01,319 - INFO - [INFO] Model training process started.
+2025-02-03 12:52:01,478 - INFO - [INFO] Iris dataset loaded successfully.
+2025-02-03 12:52:01,485 - INFO - [INFO] RandomForestClassifier trained successfully.
+2025-02-03 12:52:01,486 - INFO - [TIMER] train_model took 0.0070 seconds
+2025-02-03 12:52:01,487 - INFO - [INFO] Model evaluated. Accuracy: 1.0000
+2025-02-03 12:52:01,491 - INFO - [INFO] Model saved successfully to C:\Users\emreq\Desktop\MLOPS - ML\deepseek-mlops\models\trained_model.pkl
+2025-02-03 12:52:03,992 - INFO - [INFO] Model training process completed successfully.

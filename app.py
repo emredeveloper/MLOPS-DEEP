@@ -1,6 +1,6 @@
 import os
 from fastapi import FastAPI, Request, Form, HTTPException
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.templating import Jinja2Templates
 import joblib
 import pandas as pd
@@ -114,10 +114,42 @@ async def health():
 @app.get("/debug")
 async def debug():
     """Debug endpoint to check model status"""
-    return {
-        "model_type": str(type(model)),
-        "model_params": model.get_params() if model else None,
-        "model_file_exists": os.path.exists(MODEL_FILE),
-        "model_file_path": MODEL_FILE,
-        "model_loaded": model is not None
-    }
+    try:
+        model_info = {
+            "model_file_exists": os.path.exists(MODEL_FILE),
+            "model_file_path": str(MODEL_FILE),
+            "model_loaded": model is not None,
+        }
+        
+        if model is not None:
+            model_info.update({
+                "model_type": str(type(model).__name__),
+                "model_params": {
+                    "n_estimators": model.n_estimators,
+                    "random_state": model.random_state
+                }
+            })
+        else:
+            model_info.update({
+                "model_type": "None",
+                "model_params": None,
+                "error": "Model not loaded"
+            })
+        
+        return model_info
+    except Exception as e:
+        log(f"[ERROR] Debug endpoint error: {str(e)}", level=logging.ERROR)
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error accessing model information: {str(e)}"
+        )
+
+@app.exception_handler(500)
+async def internal_error_handler(request: Request, exc: Exception):
+    """Handle internal server errors"""
+    error_msg = str(exc)
+    log(f"[ERROR] Internal server error: {error_msg}", level=logging.ERROR)
+    return JSONResponse(
+        status_code=500,
+        content={"detail": error_msg}
+    )
