@@ -1,0 +1,6 @@
+2025-02-03 11:37:41,298 - INFO - [INFO] Model training process started.
+2025-02-03 11:37:41,848 - INFO - [INFO] Iris dataset loaded successfully.
+2025-02-03 11:37:41,910 - INFO - [INFO] Model trained successfully.
+2025-02-03 11:37:41,910 - INFO - [TIMER] train_model took 0.0584 seconds
+2025-02-03 11:37:41,914 - INFO - [INFO] Model evaluated. Accuracy: 1.0000
+2025-02-03 11:37:45,804 - INFO - [INFO] Model training process completed successfully.

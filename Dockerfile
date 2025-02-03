@@ -11,5 +11,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Proje dosyalarını kopyalayın.
 COPY . .
 
+# Uygulama portunu açın.
+EXPOSE 8000
+
 # Uygulamayı çalıştırın.
-CMD ["python", "main.py"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]

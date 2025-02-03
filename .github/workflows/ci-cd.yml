@@ -2,30 +2,46 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
   pull_request:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.11'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install -r requirements-dev.txt
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.11
+    - name: Run type checks
+      run: mypy deepseek_mlops
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+    - name: Run tests
+      run: |
+        pytest --cov=deepseek_mlops tests/
+        coverage report
 
-      - name: Run tests
-        run: |
-          pytest
+    - name: Run linting
+      run: flake8 deepseek_mlops
+
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Train model
+      run: python main.py
+    - name: Archive model
+      uses: actions/upload-artifact@v2
+      with:
+        name: trained-model
+        path: models/trained_model.pkl

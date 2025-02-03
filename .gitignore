@@ -5,3 +5,7 @@ __pycache__/
 *$py.class
 .dvc
 .venv
+grafana
+requirements-dev.txt
+run.bat
+setup.cfg
