@@ -11,3 +11,10 @@ mypy
 coverage
 flake8
 pre-commit
+prometheus-client==0.17.1
+great-expectations==0.17.23
+evidently==0.4.9
+bentoml==1.1.7
+types-PyYAML
+pandas-stubs
+types-setuptools
