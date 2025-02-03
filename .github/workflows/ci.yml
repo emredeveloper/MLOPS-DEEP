@@ -19,6 +19,28 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       
+      - name: Install dev dependencies
+        run: |
+          pip install mypy coverage flake8 pre-commit
+      
+      - name: Static type checking
+        run: |
+          mypy deepseek_mlops
+      
       - name: Run tests
         run: |
           pytest  # Projenize uygun test komutunu çalıştırın.
+      
+      - name: Run coverage
+        run: |
+          coverage run -m pytest
+          coverage report
+      
+      - name: Docker build and run
+        run: |
+          docker build -t deepseek .
+          docker run --rm deepseek
+      
+      - name: Pre-commit checks
+        run: |
+          pre-commit run --all-files
