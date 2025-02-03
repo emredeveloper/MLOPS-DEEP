@@ -29,14 +29,3 @@ services:
     image: grafana/grafana:latest
     ports:
       - "3000:3000"
-    volumes:
-      - ./grafana/dashboards:/etc/grafana/provisioning/dashboards
-      - ./grafana/datasources:/etc/grafana/provisioning/datasources
-      - ./grafana/dashboards/model_metrics.json:/etc/grafana/provisioning/dashboards/model_metrics.json
-    environment:
-      - GF_SECURITY_ADMIN_PASSWORD=admin
-      - GF_SECURITY_ADMIN_USER=admin
-      - GF_AUTH_ANONYMOUS_ENABLED=true
-      - GF_INSTALL_PLUGINS=grafana-piechart-panel
-    depends_on:
-      - prometheus
