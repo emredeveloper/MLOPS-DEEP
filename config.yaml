@@ -1,0 +1,9 @@
+
+BASE_DIR: "deepseek_mlops"
+MODELS_DIR: "deepseek_mlops/models"
+MODEL_FILE: "deepseek_mlops/models/trained_model.pkl"
+LOGS_DIR: "deepseek_mlops/logs"
+LOG_FILE: "deepseek_mlops/logs/training.log"
+TRAIN_TEST_SPLIT: 0.2
+RANDOM_STATE: 42
+N_ESTIMATORS: 100

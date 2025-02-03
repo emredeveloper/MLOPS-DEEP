@@ -6,3 +6,4 @@ fastapi
 uvicorn
 jinja2  # Added for template rendering
 pytest  # Added to ensure it's installed
+PyYAML  # Added for config.yaml parsing

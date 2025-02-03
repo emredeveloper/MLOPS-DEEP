@@ -1,11 +1,16 @@
 import os
+import yaml
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MODELS_DIR = os.path.join(BASE_DIR, "models")
-MODEL_FILE = os.path.join(MODELS_DIR, "trained_model.pkl")
-LOGS_DIR = os.path.join(BASE_DIR, "logs")
-LOG_FILE = os.path.join(LOGS_DIR, "training.log")
+this_dir = os.path.dirname(os.path.abspath(__file__))
+yaml_path = os.path.join(os.path.dirname(this_dir), "config.yaml")
+with open(yaml_path, "r", encoding="utf-8") as f:
+    config_data = yaml.safe_load(f)
 
-TRAIN_TEST_SPLIT = 0.2
-RANDOM_STATE = 42
-N_ESTIMATORS = 100
+BASE_DIR = os.path.abspath(config_data["BASE_DIR"])
+MODELS_DIR = os.path.abspath(config_data["MODELS_DIR"])
+MODEL_FILE = os.path.abspath(config_data["MODEL_FILE"])
+LOGS_DIR = os.path.abspath(config_data["LOGS_DIR"])
+LOG_FILE = os.path.abspath(config_data["LOG_FILE"])
+TRAIN_TEST_SPLIT = config_data["TRAIN_TEST_SPLIT"]
+RANDOM_STATE = config_data["RANDOM_STATE"]
+N_ESTIMATORS = config_data["N_ESTIMATORS"]
